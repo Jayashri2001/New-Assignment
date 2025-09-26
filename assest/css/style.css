@@ -1,0 +1,454 @@
+/* ------------------ RESET ------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+body {
+  background: #f5f6fa;
+  color: #333;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ------------------ LOGIN PAGE ------------------ */
+.logo {
+  width: 150px;
+  margin: 82px auto -86px;
+  display: block;
+}
+.login-box {
+  background: #fff;
+  width: 90%;
+  max-width: 360px;
+  padding: 35px 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  top: 329px;
+  transform: translateY(-50%);
+  margin: auto;
+}
+@media (max-height: 600px) {
+  .login-box {
+    position: static;
+    transform: none;
+    margin: 60px auto;
+  }
+}
+.login-box h2 {margin-bottom:20px;color:#333;}
+.input-group {position:relative;margin:10px 0;}
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px 12px 12px 42px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f6f6fc;
+  font-size: 15px;
+}
+.input-group i {
+  position: absolute;
+  top: 50%; left: 12px;
+  transform: translateY(-50%);
+  color: #777; font-size: 16px;
+}
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #05c99c, #00b894);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.login-box button:hover {filter:brightness(1.05);}
+
+/* ------------------ DEFINE SYSTEM TOP BAR ------------------ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-left img {
+  width: 80px;
+  height: auto;
+}
+.nav-links a {
+  margin-left: 24px;
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.2s;
+}
+.nav-links a:hover {
+  color: #00b894;
+}
+@media (max-width: 600px) {
+  .nav-links a {
+    margin-left: 12px;
+    font-size: 15px;
+  }
+}
+.main {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  margin-top: -102px;
+}
+.main h1 {
+  font-size: clamp(24px, 4vw, 36px);
+  color: #333;
+  margin-bottom: 10px;
+}
+.main p {
+  font-size: clamp(16px, 2vw, 20px);
+  color: #555;
+  max-width: 600px;
+  line-height: 1.5;
+}
+.ds-topnav {
+  background:#fff;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 1px 4px rgba(0,0,0,0.08);
+}
+.ds-left {display:flex;align-items:center;gap:12px;}
+.ds-left img {height:40px;}
+.ds-company {font-weight:600;font-size:15px;color:#333;}
+.ds-user {
+  width:38px;height:38px;
+  border-radius:50%;background:#e74c3c;
+  color:#fff;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ------------------ NAV MENU ------------------ */
+.ds-menubar {
+  background:#fff;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:14px 24px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.05);
+  transition:transform .3s ease;
+}
+.ds-menubar a {
+  color:#333;
+  font-weight:600;
+  padding:6px 0;
+  white-space:nowrap;
+}
+.ds-menubar a:hover {color:#6c63ff;}
+
+/* Dropdown */
+.ds-dropdown-parent {position:relative;}
+.ds-submenu {
+  display:none;
+  position:absolute;
+  top:32px;left:0;
+  min-width:160px;
+  background:#fff;
+  border:1px solid #ddd;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  flex-direction:column;
+  z-index:100;
+}
+.ds-submenu a {
+  padding:8px 12px;
+  font-weight:500;
+  white-space:nowrap;
+}
+.ds-dropdown-parent:hover .ds-submenu {display:flex;}
+
+/* Hamburger (mobile) */
+.hamburger {
+  display:none;
+  margin-right: 20px;
+  font-size:22px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+/* --- mobile slide menu --- */
+@media (max-width:768px){
+  .hamburger{display:block;}
+  .ds-menubar {
+    flex-direction:column;
+    position:fixed;
+    top:0;left:0;
+    width:230px;height:100%;
+    transform:translateX(-100%);
+    background:#fff;
+    padding:60px 20px 20px;
+    border-right:1px solid #ddd;
+    box-shadow:2px 0 6px rgba(0,0,0,0.1);
+    z-index:999;
+  }
+  .ds-menubar.show {transform:translateX(0);}
+  .ds-dropdown-parent:hover .ds-submenu {
+    position:static;
+    border:none;
+    box-shadow:none;
+  }
+}
+@media (max-width:600px){
+  .ds-company{display:none;}
+}
+
+/* ---------- Content Area ---------- */
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+.ds-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.ds-filters select,
+.ds-filters button {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.ds-btn {
+  background: #6c5ce7;
+  color: #fff;
+  border: none;
+  width: 13%;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.ds-btn:hover {background: #5a4dd8;}
+@media(max-width:800px){
+  .ds-btn{width:48%;}
+}
+
+/* ---------- Table ---------- */
+.ds-table-wrapper {
+  background: #fff;
+  border-radius: 8px;
+  overflow-x: auto;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+.ds-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.ds-table th,
+.ds-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.ds-expand {
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.ds-menu {position: relative;}
+.ds-dots {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+.ds-dropdown {
+  position: absolute;
+  right: 0;
+  top: 32px;
+  background: #fff;
+  border: 1px solid #ddd;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  min-width: 140px;
+  z-index: 20;
+}
+.ds-dropdown a {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.ds-dropdown a:hover {background: #f3f3f3;}
+
+/* ---------- Child Table ---------- */
+.child-table {
+  width: 95%;
+  margin: 10px auto;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.child-table th,
+.child-table td {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+
+/* ---------- Modal ---------- */
+/* ---------- Modal Overlay ---------- */
+.ds-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;            /* JS toggles to flex */
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.ds-modal.show {display:flex;}
+
+/* ---------- Modal Box ---------- */
+.ds-modal-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 28px;
+  width: 95%;
+  max-width: 1100px;        /* wide desktop look */
+  max-height: 90vh;         /* keep inside viewport */
+  overflow-y: auto;         /* scroll inner form if needed */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  animation: fadeIn .25s ease;
+}
+@keyframes fadeIn {
+  from {opacity:0; transform:scale(.96);}
+  to   {opacity:1; transform:scale(1);}
+}
+
+/* ---------- Header ---------- */
+.ds-modal-header {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 10px;
+}
+.ds-close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+  color: #666;
+}
+.ds-close:hover {color:#000;}
+
+/* ---------- Form Grid ---------- */
+.ds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 18px 22px;
+  margin-bottom: 25px;
+}
+.ds-grid label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+.ds-grid input,
+.ds-grid select {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f8f8fc;
+  font-size: 14px;
+}
+
+/* ---------- Action Buttons ---------- */
+.ds-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.ds-modal-actions button {
+  flex: 1 1 180px;
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background: #6c5ce7;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.ds-modal-actions button:hover {background:#5946d4;}
+
+/* ---------- Extra Inputs ---------- */
+.ds-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.ds-modal textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f8f8fc;
+  font-size: 14px;
+  resize: vertical;
+}
+
+/* ---------- Save Button ---------- */
+/* .ds-btn {
+  background: #05c99c;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+} */
+.ds-btn:hover {background:#00b894;}
+
+@media(max-width:768px){
+  .ds-modal-content {padding:20px;}
+  .ds-modal-actions button {flex:1 1 100%;}
+}
+
