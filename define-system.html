@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PA TEAM – Define System</title>
+<link rel="stylesheet" href="assest/css/style.css">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+
+
+
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="ds-topnav">
+  <div class="ds-left">
+    <img src="https://dummyimage.com/120x40/00b894/ffffff&text=PA+TEAM" alt="logo">
+    <!-- <span class="ds-company">PA TEAM SOFTWARE CONSULTING LTD. (pateam)</span> -->
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="hamburger" id="menuToggle"><i class="fa fa-bars"></i></button>
+    <div class="ds-user">A</div>
+  </div>
+</header>
+
+<!-- ===== Menu ===== -->
+<nav class="ds-menubar" id="navMenu">
+  <a href="#">Dashboards</a>
+  <a href="#">Masters</a>
+  <a href="#">CheckList</a>
+
+  <div class="ds-dropdown-parent">
+    <a href="#">Define System <i class="fa fa-caret-down"></i></a>
+    <div class="ds-submenu">
+      <a href="#">Option 1</a>
+      <a href="#">Option 2</a>
+    </div>
+  </div>
+
+  <a href="#">MR/Leader Master</a>
+  <a href="#">Common Policy</a>
+  <a href="#">Reports</a>
+  <a href="#">Employee Training</a>
+</nav>
+
+<!-- ===== Content ===== -->
+<main>
+  <h2>Customer Management</h2>
+  <div class="ds-filters">
+    <select><option>ISO 27001:2022</option></select>
+    <select><option>---SELECT---</option></select>
+    <button class="ds-btn">Search</button>
+    <button class="ds-btn">Export Clause Info</button>
+  </div>
+
+  <div class="ds-table-wrapper">
+    <table class="ds-table" id="mainTable">
+      <thead>
+        <tr>
+          <th></th>
+          <th>STANDARD NAME</th>
+          <th>CLAUSE NO</th>
+          <th>CLAUSE NAME</th>
+          <th>MAIN CLAUSE</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-clause="1">
+          <td><button class="ds-expand">+</button></td>
+          <td>ISO 27001:2022</td>
+          <td>1</td>
+          <td>Scope</td>
+          <td>—</td>
+          <td class="ds-menu">
+            <button class="ds-dots"><i class="fa fa-ellipsis-v"></i></button>
+            <div class="ds-dropdown">
+              <a href="#" class="add-info">Add Info</a>
+            </div>
+          </td>
+        </tr>
+        <tr data-clause="2">
+          <td><button class="ds-expand">+</button></td>
+          <td>ISO 27001:2022</td>
+          <td>2</td>
+          <td>Normative references</td>
+          <td>—</td>
+          <td class="ds-menu">
+            <button class="ds-dots"><i class="fa fa-ellipsis-v"></i></button>
+            <div class="ds-dropdown">
+              <a href="#" class="add-info">Add Info</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<!-- ===== Popup Form ===== -->
+<!-- Add Info Popup -->
+<div class="ds-modal" id="infoModal">
+  <div class="ds-modal-content">
+    <div class="ds-modal-header">
+      Document Information Detail
+      <span class="ds-close">&times;</span>
+    </div>
+
+    <form class="ds-modal-form" id="infoForm">
+      <div class="ds-grid">
+        <label>Standard Name
+          <input type="text" name="standardName" readonly value="ISO 27001:2022">
+        </label>
+        <label>Clause No
+          <input type="text" name="clauseNo">
+        </label>
+        <label>Standard Doc Reference
+          <select name="docRef">
+            <option value="">---SELECT---</option>
+            <option>Manual</option>
+            <option>Procedure</option>
+          </select>
+        </label>
+        <label>Document Title
+          <input type="text" name="docTitle" required>
+        </label>
+        <label>Document No
+          <input type="text" name="docNo" required>
+        </label>
+        <label>Document Version
+          <input type="text" name="docVer" value="1" required>
+        </label>
+        <label>Effective Date
+          <input type="date" name="effDate" required>
+        </label>
+        <label>Status
+          <select name="status">
+            <option>Draft</option>
+            <option>Approved</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="ds-modal-actions">
+        <button type="button">Clause Description</button>
+        <button type="button">Clause Requirement</button>
+        <button type="button">Clause Guidance</button>
+      </div>
+
+      <label class="ds-check">
+        <input type="checkbox" name="fetchDesc">
+        Fetch Description from other standard ?
+      </label>
+
+      <label>Description
+        <textarea name="description" rows="4"></textarea>
+      </label>
+
+      <button type="submit" class="ds-btn">Save</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+<script src="assest/js/script.js"></script>
+</body>
+</html>
